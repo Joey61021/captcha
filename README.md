@@ -20,10 +20,6 @@ A minimalistic Bukkit/Paper plugin that adds CAPTCHA verification challenges to 
 2. Place it in your server's `plugins` folder
 3. Restart the server
 
-## Configuration
-
-Configure the plugin via `plugin.yml`. Default settings work out of the box.
-
 ## API Usage
 
 ```java
