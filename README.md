@@ -1,6 +1,7 @@
 # Captcha
 
 A minimalistic Bukkit/Paper plugin that adds CAPTCHA verification challenges to Minecraft servers.
+<img width="497" height="459" alt="Screenshot 2026-04-07 180345" src="https://github.com/user-attachments/assets/6a6636ab-f049-45a3-9ee7-cdcecc8bcb2f" />
 
 ## Features
 
