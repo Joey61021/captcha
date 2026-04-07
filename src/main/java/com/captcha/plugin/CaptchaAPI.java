@@ -2,6 +2,7 @@ package com.captcha.plugin;
 
 import com.captcha.plugin.commands.CaptchaCommand;
 import com.captcha.plugin.config.Config;
+import com.captcha.plugin.events.CaptchaListener;
 import com.captcha.plugin.globals.Messages;
 import com.captcha.plugin.services.CaptchaService;
 import com.captcha.plugin.user.UserManager;
@@ -27,7 +28,7 @@ public class CaptchaAPI extends JavaPlugin {
 
 	void registerEvents() {
 		registerEvent(new UserManager());
-
+		registerEvent(new CaptchaListener(messages));
 	}
 
 	void registerCommands() {

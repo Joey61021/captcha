@@ -1,7 +1,10 @@
 blocked_console: '&c&lThis command cannot be run through console!'
 blocked_permission: '&c&lYou do not have permission to run this command!'
+blocked_captcha: "&cYou cannot do this until the captcha is completed!"
 commands:
   captcha:
     usage: "&cCorrect usage: /captcha <player>"
     show: "&aShowing captcha for &e%player%&a."
     no_player: "&cCould not find player %player%."
+    correct: "&eThank you for taking the time to keep this server safe!"
+    wrong: "&cIncorrect, remaining attempts: %num%"

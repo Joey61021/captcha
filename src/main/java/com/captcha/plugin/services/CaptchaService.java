@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CaptchaService {
 
-	private List<CaptchaItem> items = new ArrayList<>();
+	private final List<CaptchaItem> items = new ArrayList<>();
 
 	public CaptchaService() {
 		items.add(new CaptchaItem(Material.ORANGE_STAINED_GLASS_PANE, "&6Orange"));
@@ -26,7 +26,7 @@ public class CaptchaService {
 	}
 
 	public void open(Player player) {
-		CaptchaItem c = items.get(rand(0, items.size())); /* correct color is predetermined */
+		CaptchaItem c = items.get(rand(0, items.size()-1)); /* correct color is predetermined */
 		Inventory inv = new MenuBuilder("Click on the color " + c.getName(), 3).fill().build();
 		populate(inv, c.getMaterial());
 
@@ -42,7 +42,9 @@ public class CaptchaService {
 		for (int i = 0; i < items.size(); i++) {
 			CaptchaItem c = items.get(i);
 			if (!c.getMaterial().equals(m)) {
-				inv.setItem(rand(0, inv.getSize()-1), new ItemBuilder(c.getMaterial()).setDisplayName("&cDon't click me!").build());
+				ItemBuilder item = new ItemBuilder(c.getMaterial());
+				item.setDisplayName("&cDon't click me!");
+				inv.setItem(rand(0, inv.getSize()-1), item.build());
 			}
 		}
 	}

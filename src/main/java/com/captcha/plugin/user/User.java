@@ -14,6 +14,10 @@ public class User {
 	@Setter
 	private boolean inCaptcha = true; /* disabled when they pass */
 
+	@Getter
+	@Setter
+	private int attempts = 3;
+
 	public User(UUID uuid) {
 		this.uuid = uuid;
 	}
