@@ -1,0 +1,4 @@
+name: Captcha
+version: '${project.version}'
+main: com.captcha.plugin.CaptchaAPI
+api-version: '1.21'
