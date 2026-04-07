@@ -53,17 +53,11 @@ public class CaptchaAPI extends JavaPlugin {
 
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
-
-
 		Bukkit.getServicesManager().register(CaptchaAPI.class, this, this, ServicePriority.Normal);
 	}
 
 	@Override
 	public void onDisable() {}
-
-	public static void reloadConfigs() {
-		messages.refresh();
-	}
 
 	public static String color(String s) {
 		return ChatColor.translateAlternateColorCodes('&', s);
