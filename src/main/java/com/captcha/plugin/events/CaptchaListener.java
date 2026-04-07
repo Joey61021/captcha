@@ -37,7 +37,6 @@ public class CaptchaListener implements Listener {
 			return; /* todo -- config to disable or enable this check */
 		}
 
-		UserManager.getUser(player.getUniqueId()).setInCaptcha(true);
 		CaptchaAPI.getCaptchaService().open(player);
 	}
 

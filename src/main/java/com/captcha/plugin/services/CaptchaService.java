@@ -3,6 +3,8 @@ package com.captcha.plugin.services;
 import com.captcha.plugin.builders.ItemBuilder;
 import com.captcha.plugin.builders.MenuBuilder;
 import com.captcha.plugin.globals.Keys;
+import com.captcha.plugin.user.User;
+import com.captcha.plugin.user.UserManager;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,6 +28,14 @@ public class CaptchaService {
 	}
 
 	public void open(Player player) {
+		gui(player);
+
+		User user = UserManager.getUser(player);
+		user.setInCaptcha(true);
+		user.setAttempts(3);
+	}
+
+	public void gui(Player player) {
 		CaptchaItem c = items.get(rand(0, items.size()-1)); /* correct color is predetermined */
 		Inventory inv = new MenuBuilder("Click on the color " + c.getName(), 3).fill().build();
 		populate(inv, c.getMaterial());
