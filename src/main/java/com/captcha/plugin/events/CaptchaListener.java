@@ -43,13 +43,15 @@ public class CaptchaListener implements Listener {
 	@EventHandler
 	private void onClose(InventoryCloseEvent event) {
 		Player player = (Player) event.getPlayer();
-		if (UserManager.getUser(player.getUniqueId()).isInCaptcha()) {
+		User user = UserManager.getUser(player.getUniqueId());
+		if (user != null && user.isInCaptcha()) {
 			player.kickPlayer(CaptchaAPI.color("&cCaptcha failed, please try again"));
 		}
 	}
 
 	private void handleBlockedEvent(Player player, Cancellable event) {
-		if (UserManager.getUser(player.getUniqueId()).isInCaptcha()) {
+		User user = UserManager.getUser(player.getUniqueId());
+		if (user != null && user.isInCaptcha()) {
 			event.setCancelled(true);
 			player.sendMessage(messages.get(Messages.BLOCKED_CAPTCHA));
 			player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
