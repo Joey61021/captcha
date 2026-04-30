@@ -25,12 +25,16 @@ public class CaptchaCommand extends Command {
 
 	@Override
 	public boolean execute(@NotNull CommandSender sender, @NotNull String s, @NotNull String @NotNull [] args) {
+		if (!testPermission(sender)) {
+			return false;
+		}
+
 		if (!(sender instanceof Player player)) {
 			sender.sendMessage(messages.get(Messages.BLOCKED_CONSOLE));
 			return false;
 		}
 
-		/* /gang <player> */
+		/* /captcha <player> */
 		if (args.length == 0) {
 			player.sendMessage(messages.get(Messages.COMMAND_CAPTCHA_USAGE));
 			return false;
